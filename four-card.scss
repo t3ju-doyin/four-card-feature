@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+$Red: hsl(0, 78%, 62%);
+$Cyan: hsl(180, 62%, 55%);
+$Orange: hsl(34, 97%, 64%);
+$Blue: hsl(212, 86%, 64%);
+
+$Very-Dark-Blue: hsl(234, 12%, 34%);
+$Grayish-Blue: hsl(229, 6%, 66%);
+$Very-Light-Gray: hsl(0, 0%, 98%);
+$shadow: 0px 13px 15px  rgba(139, 123, 123, 0.41);
+
+$light-font: 'Roboto', sans-serif;
+$bold-font: 'Poppins', sans-serif;
+
+
+*,*::before,*::after{
+    margin:0;
+    padding:0;
+}
+body{
+    box-sizing: border-box;
+    background-color: $Very-Light-Gray;
+    color: $Very-Dark-Blue;
+    margin: 1.5rem auto;
+    width: 90%;
+    // max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    section{
+        background-color: white;
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: $shadow;
+        max-width: 270px;
+        h4{
+            margin-bottom: 1rem;
+        }
+        P{
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 3rem;
+            max-width: 75%;
+        }
+        img{
+            position:relative;
+            display: block;
+            width: 18%;
+            max-width: 100%;
+            margin-left: auto;
+        }
+    }
+    
+    h4,h3{
+        font-family: $bold-font;
+    }
+    p{
+        font-family: $light-font;
+    }
+}
+header{
+    text-align: center;
+    margin-bottom: 3.3rem;
+    .light{
+        font-size: 19px;
+        font-weight: lighter;
+    }
+    div p{
+
+        font-size: 13px;
+        line-height: 1.5;
+        max-width: 355px;
+        
+    }
+}
+main{
+    gap: 1rem;
+    section.supervisor{
+        border-top: 4px solid $Cyan;
+    }
+    section.team-builder{
+        border-top: 4px solid $Red;
+    }
+    section.karma{
+        border-top: 4px solid $Orange;
+    }
+    section.calculator{
+        border-top: 4px solid $Blue;
+    }
+}
+@media (min-width: 700px) {
+    main{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+
+    }
+}
+@media (min-width: 950px) {
+    main{
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(4,.5fr);
+        grid-template-areas: 
+        '. builder .'
+        'supervisor builder calculator'
+        'supervisor karma calculator'
+        '. karma .';
+        section{
+            margin-bottom: 0;
+        }
+
+        .supervisor{
+            grid-area: supervisor;
+        }
+        .team-builder{
+            grid-area: builder;
+        }
+        .karma{
+            grid-area: karma;
+        }
+        .calculator{
+            grid-area: calculator;
+        }
+    }
+}
